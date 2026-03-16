@@ -13,20 +13,11 @@ public class TbcCreditPage {
     public TbcCreditPage(Page page) {
         this.page = page;
 
-        // Calculator element
-        this.calculator = page.locator("div.title-calculator");
+        this.cookiesAcceptButton = page.locator("a#acceptAllCookies:has-text('თანხმობა')");
+        this.calculator = page.locator("#standard-calculator");
 
-        // Cookies iframe
-        FrameLocator cookiesFrame = page.frameLocator("iframe[title='No content']");
 
-        // Accept cookies button inside iframe
-        this.cookiesAcceptButton = cookiesFrame.locator("#acceptAllCookies");
     }
-
-    public void acceptCookies() {
-        cookiesAcceptButton.click();
-    }
-
     public String url() {
         return page.url();
     }

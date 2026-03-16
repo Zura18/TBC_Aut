@@ -8,25 +8,23 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 //import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 
-public class RedirectToCreditPage {
+public class RedirectToCreditPageStep {
     TbcBankLoansPage loansPage;
 
-    public RedirectToCreditPage(Page page) {
-
+    public RedirectToCreditPageStep(Page page) {
         this.loansPage = new TbcBankLoansPage(page);
     }
 
-
-    public RedirectToCreditPage requestLoan(){
-        TbcBankLoansPage.requestLoan.nth(0).click();
+    public RedirectToCreditPageStep loansPageContentVisibility() {
+        assertThat(loansPage.productsGroup).isVisible();
         return this;
     }
 
+    public RedirectToCreditPageStep requestLoan(){
+        loansPage.requestLoan.nth(0).click();
+        return this;
+    }
 
-
-//    public LoansStep checkLoanLinkValidity(){
-//    //PAge newPage = page.waitForPopip(())
-//    }
 
 
 }

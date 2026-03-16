@@ -20,13 +20,13 @@ public class TbcCreditUrlVerifyStep {
         return this;
     }
 
-    public TbcCreditUrlVerifyStep verifyCalculatorVisibility() {
-        assertThat(tbcCreditPage.calculator).isVisible();
+    public TbcCreditUrlVerifyStep acceptCookies (){
+        tbcCreditPage.cookiesAcceptButton.click();
         return this;
     }
 
-    public TbcCreditUrlVerifyStep acceptCookies (){
-        tbcCreditPage.cookiesAcceptButton.click();
+    public TbcCreditUrlVerifyStep verifyCalculatorVisibility() {
+        assertThat(tbcCreditPage.calculator).isVisible();
         return this;
     }
 }

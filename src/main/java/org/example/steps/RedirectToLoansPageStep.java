@@ -2,16 +2,16 @@ package org.example.steps;
 
 import com.microsoft.playwright.Page;
 import org.example.page.HomePage;
-import org.example.page.TbcBankLoansPage;
 
-public class RedirectToLoansPage {
+public class RedirectToLoansPageStep {
     HomePage homePage;
 
-    public RedirectToLoansPage(Page page) {
+    public RedirectToLoansPageStep(Page page) {
         this.homePage = new HomePage(page);
     }
-    public RedirectToLoansPage openLoansPage(){
-        HomePage.toLoans.click();
+
+    public RedirectToLoansPageStep openLoansPage(){
+        homePage.toLoans.click();
         return this;
     }
 
