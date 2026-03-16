@@ -22,6 +22,9 @@ public class LoansTest extends BaseTest {
             creditsStep.requestLoan();
         });
 
+
+
+
         TbcCreditUrlVerifyStep verifyStep = new TbcCreditUrlVerifyStep(creditPage);
         verifyStep.verifyTbcCreditUrl().acceptCookies().verifyCalculatorVisibility();
     }
