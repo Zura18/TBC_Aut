@@ -12,12 +12,10 @@ public class TbcCreditPage {
 
     public TbcCreditPage(Page page) {
         this.page = page;
-
         this.cookiesAcceptButton = page.locator("a#acceptAllCookies:has-text('თანხმობა')");
         this.calculator = page.locator("#standard-calculator");
-
-
     }
+
     public String url() {
         return page.url();
     }

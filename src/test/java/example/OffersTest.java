@@ -1,14 +1,13 @@
 package example;
 
-import com.microsoft.playwright.Page;
-import org.example.steps.OffersStep;
+import org.example.steps.OffersSteps;
 import org.testng.annotations.Test;
 
 public class OffersTest extends BaseTest {
     @Test
     public void testOffersPage() {
-        page.navigate(" https://tbcbank.ge/ka/offers/all-offers");
-                OffersStep offersStep = new OffersStep(page);
+        page.navigate("https://tbcbank.ge/ka/offers/all-offers");
+                OffersSteps offersStep = new OffersSteps(page);
                 offersStep.cardTypeVisibility().
                 productGridVisibility().
                 masterCardChoose().

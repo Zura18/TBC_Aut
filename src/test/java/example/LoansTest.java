@@ -1,10 +1,10 @@
 package example;
 
 import com.microsoft.playwright.Page;
-import org.example.steps.RedirectToLoansPageStep;
-import org.example.steps.TbcCreditUrlVerifyStep;
+import org.example.steps.HomePageSteps;
+import org.example.steps.CreditPageSteps;
 import org.testng.annotations.Test;
-import org.example.steps.RedirectToCreditPageStep;
+import org.example.steps.LoansPageSteps;
 
 public class LoansTest extends BaseTest {
 
@@ -13,16 +13,20 @@ public class LoansTest extends BaseTest {
 
         page.navigate("https://tbcbank.ge/ka");
 
-        RedirectToLoansPageStep loansPage = new RedirectToLoansPageStep(page);
-        RedirectToCreditPageStep creditsStep = new RedirectToCreditPageStep(page);
+        HomePageSteps loansStep = new HomePageSteps(page);
+        LoansPageSteps creditsStep = new LoansPageSteps(page);
 
-        loansPage.openLoansPage();
+        loansStep.openLoansPage();
 
         Page creditPage = page.waitForPopup(() -> {
             creditsStep.requestLoan();
         });
 
-        TbcCreditUrlVerifyStep verifyStep = new TbcCreditUrlVerifyStep(creditPage);
-        verifyStep.verifyTbcCreditUrl().acceptCookies().verifyCalculatorVisibility();
+        CreditPageSteps creditPageSteps = new CreditPageSteps(creditPage);
+
+        creditPageSteps.
+                verifyTbcCreditUrl().
+                acceptCookies().
+                verifyCalculatorVisibility();
     }
 }

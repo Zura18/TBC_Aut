@@ -5,52 +5,48 @@ import org.example.page.OffersPage;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class OffersStep {
+public class OffersSteps {
     OffersPage offersPage;
 
-    public OffersStep(Page page) {
+    public OffersSteps(Page page) {
         this.offersPage = new OffersPage(page);
     }
 
-    public OffersStep cardTypeVisibility() {
+    public OffersSteps cardTypeVisibility() {
         assertThat(offersPage.cardType).isVisible();
         return this;
     }
-    public OffersStep productGridVisibility() {
+    public OffersSteps productGridVisibility() {
         assertThat(offersPage.productGrid).isVisible();
         return this;
     }
 
-    public OffersStep masterCardChoose(){
+    public OffersSteps masterCardChoose(){
         offersPage.masterCard.click();
         return this;
     }
 
-    public OffersStep offerTypeForPartnersCheck(){
+    public OffersSteps offerTypeForPartnersCheck(){
         offersPage.offerTypeForPartners.check();
         return this;
     }
 
-    public OffersStep offersNotFound(){
+    public OffersSteps offersNotFound(){
         assertThat(offersPage.offersNotFound).isVisible();
         return this;
     }
 
-    public OffersStep productGridEmptyValidate(){
+    public OffersSteps productGridEmptyValidate(){
         assertThat(offersPage.emptyGrid.locator("> *")).hasCount(0);
         return this;
     }
 
-    public OffersStep clearFilterButton1(){
+    public OffersSteps clearFilterButton1(){
         offersPage.clearFilterButton1.nth(0).click();
         return this;
     }
 
-//    public OffersStep clearFilterButton2(){
-//        offersPage.clearFilterButton1.nth(1).click();
-//        return this;
-//    }
-    public OffersStep filledProductGridVisibility(){
+    public OffersSteps filledProductGridVisibility(){
         assertThat(offersPage.filledProductGrid.locator("> *").first()).isVisible();
         return this;
     }
